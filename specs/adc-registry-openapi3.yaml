@@ -1,0 +1,174 @@
+openapi: '3.0.0'
+
+info:
+  title: AIRR Data Commons Registry API
+  version: 1.0.0
+  contact:
+    name: AIRR Community Common Repository Working Group
+    url: 'http://www.airr-community.org/'
+    email: common-repository@airr-community.org
+  description: >
+    Major Version 1 of the Adaptive Immune Receptor Repertoire (AIRR)
+    Data Commons Registry web service application programming interface (API).
+  license:
+    name: Creative Commons Attribution 4.0 International
+    url: https://creativecommons.org/licenses/by/4.0/
+
+servers:
+  - url: https://registry.airr-community.org/airr-registry/v1
+    description: AIRR Community ADC Registry
+    variables:
+      basePath:
+        default: /airr-registry/v1
+
+components:
+  schemas:
+    # Info object
+    info_object:
+      type: object
+      description: Provides information about the API response
+      properties:
+        title:
+          type: string
+        version:
+          type: string
+        description:
+          type: string
+        contact: 
+          type: object
+          properties:
+            name:
+              type: string
+            url:
+              type: string
+            email:
+              type: string
+        license:
+          type: object
+          properties:
+            name:
+              type: string
+            url:
+              type: string
+
+    # Service info object. This is the object returned by the /info request,
+    # and provides information about the ADC repository service and its attributes and capabilities
+    service_info_object:
+      description: Provides information about the ADC registry service and it attributes and capabilities.
+      allOf:
+        - $ref: '#/components/schemas/info_object'
+        - type: object
+          properties:
+            attributes:
+              type: object
+              properties:
+                max_size:
+                  type: integer
+                max_query_size:
+                  type: integer
+                last_update:
+                  type: string
+            api:
+              $ref: '#/components/schemas/info_object'
+            schema:
+              $ref: '#/components/schemas/info_object'
+
+    # repository object
+    repository_object:
+      type: object
+      description: Object that describes an ADC repository.
+      properties:
+        URL:
+          type: string
+        Info:
+          $ref: '#/components/schemas/service_info_object'
+
+    # list of repositories
+    repository_list:
+      type: array
+      items:
+        $ref: '#/components/schemas/repository_object'
+
+    # The response object for the /repositories endpoint
+    repositories_response:
+      type: object
+      properties:
+        repositories:
+          $ref: '#/components/schemas/repository_list'
+
+    # error response
+    error_response:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Detail about the error
+
+paths:
+  /:
+    get:
+      description: Service heartbeat.
+      operationId: get_service_status
+      responses:
+        '200':
+          description: Service is up.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+
+  /info:
+    get:
+      description: Service information.
+      operationId: get_info
+      responses:
+        '200':
+          description: Success.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/service_info_object'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+
+  /repositories:
+    get:
+      description: >
+        Returns a list of repositories and their associated Info objects
+      operationId: get_repostiroeis
+      tags:
+        - repositories
+      responses:
+        '200':
+          description: |
+            A successful call returns the repertoire data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/repositories_response'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_response'
+
