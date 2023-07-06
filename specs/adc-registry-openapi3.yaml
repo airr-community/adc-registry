@@ -136,7 +136,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/service_info_object'
+                $ref: '#/components/schemas/info_object'
         '500':
           description: Server error
           content:
