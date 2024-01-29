@@ -92,12 +92,12 @@ components:
       type: object
       description: Object that describes an ADC repository.
       properties:
-        URL:
+        url:
           type: string
           example: https://ipa1.ireceptor.org
-        Repository:
+        repository:
           $ref: '#/components/schemas/repository_info_object'
-        API:
+        api:
            $ref: '#/components/schemas/api_info_object'
     # list of repositories
     repository_list:
