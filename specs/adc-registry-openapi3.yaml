@@ -2,7 +2,7 @@ openapi: '3.0.0'
 
 info:
   title: AIRR Data Commons Registry API
-  version: 1.0.0
+  version: '1.0.0'
   contact:
     name: AIRR Community Common Repository Working Group
     url: 'http://www.airr-community.org/'
@@ -33,7 +33,7 @@ components:
           example: AIRR Data Commons Registry API
         version:
           type: string
-          example: 1.0
+          example: '1.0'
         description:
           type: string
           example: Service that provides registry information for the repositories in the AIRR Data Commons
@@ -68,7 +68,7 @@ components:
           example: iReceptor Public Archive - Repository 1
         version:
           type: string
-          example: 4.0
+          example: '4.0'
         description:
           type: string
           example: First repository in the iReceptor Public Archive repository cluster, running v4.0 of the iReceptor Turnkey software and impleneting v1.2 of the AIRR Data Commons API.
@@ -104,7 +104,7 @@ components:
           example: AIRR Data Commons API
         version:
           type: string
-          example: 1.2.0
+          example: '1.2.0'
         description:
           type: string
           example: Version 1.2 of the Adaptive Immune Receptor Repertoire (AIRR) Data Commons (ADC) web service application programming interface (API)
