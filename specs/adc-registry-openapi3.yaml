@@ -23,36 +23,6 @@ servers:
 
 components:
   schemas:
-openapi: '3.0.0'
-
-info:
-  title: AIRR Data Commons API
-  version: 1.2.0
-  contact:
-    name: AIRR Community
-    url: 'http://www.airr-community.org/'
-    email: join@airr-community.org
-  description: >
-    Major Version 1 of the Adaptive Immune Receptor Repertoire (AIRR)
-    data repository web service application programming interface (API).
-  license:
-    name: Creative Commons Attribution 4.0 International
-    url: https://creativecommons.org/licenses/by/4.0/
-
-servers:
-  - url: https://vdjserver.org/airr/v1
-    description: VDJServer ADC API
-    variables:
-      basePath:
-        default: /airr/v1
-  - url: https://ipa1.ireceptor.org/airr/v1
-    description: iReceptor IPA1 ADC API
-    variables:
-      basePath:
-        default: /airr/v1
-
-components:
-  schemas:
     # Base registry /info endpoint object
     info_object:
       type: object
