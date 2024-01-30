@@ -23,7 +23,71 @@ servers:
 
 components:
   schemas:
+openapi: '3.0.0'
 
+info:
+  title: AIRR Data Commons API
+  version: 1.2.0
+  contact:
+    name: AIRR Community
+    url: 'http://www.airr-community.org/'
+    email: join@airr-community.org
+  description: >
+    Major Version 1 of the Adaptive Immune Receptor Repertoire (AIRR)
+    data repository web service application programming interface (API).
+  license:
+    name: Creative Commons Attribution 4.0 International
+    url: https://creativecommons.org/licenses/by/4.0/
+
+servers:
+  - url: https://vdjserver.org/airr/v1
+    description: VDJServer ADC API
+    variables:
+      basePath:
+        default: /airr/v1
+  - url: https://ipa1.ireceptor.org/airr/v1
+    description: iReceptor IPA1 ADC API
+    variables:
+      basePath:
+        default: /airr/v1
+
+components:
+  schemas:
+    # Base registry /info endpoint object
+    info_object:
+      type: object
+      description: Provides information about the service
+      properties:
+        title:
+          type: string
+          example: AIRR Data Commons Registry API
+        version:
+          type: string
+          example: 1.0
+        description:
+          type: string
+          example: Service that provides registry information for the repositories in the AIRR Data Commons
+        contact: 
+          type: object
+          properties:
+            name:
+              type: string
+              example: AIRR Community Common Repository Working Group
+            url:
+              type: string
+              example: http://www.airr-community.org
+            email:
+              type: string
+              example: common-repository@airr-community.org
+        license:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Creative Commons Attribution 4.0 International
+            url:
+              type: string
+              example: https://creativecommons.org/licenses/by/4.0/
     # Info object for the repository itself
     repository_info_object:
       type: object
@@ -34,7 +98,7 @@ components:
           example: iReceptor Public Archive - Repository 1
         version:
           type: string
-          example: v4.0
+          example: 4.0
         description:
           type: string
           example: First repository in the iReceptor Public Archive repository cluster, running v4.0 of the iReceptor Turnkey software and impleneting v1.2 of the AIRR Data Commons API.
