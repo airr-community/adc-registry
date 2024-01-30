@@ -15,11 +15,11 @@ info:
     url: https://creativecommons.org/licenses/by/4.0/
 
 servers:
-  - url: https://adc-registry.airr-community.org/adc-registry/v1
+  - url: https://adc-registry.airr-community.org/
     description: AIRR Community ADC Registry
     variables:
       basePath:
-        default: /adc-registry/v1
+        default: /
 
 components:
   schemas:
@@ -155,10 +155,12 @@ components:
           description: Detail about the error
 
 paths:
-  /:
+  /adc-registry/v1/:
     get:
       description: Service heartbeat.
       operationId: get_service_status
+      tags:
+        - adc-registry
       responses:
         '200':
           description: Service is up.
@@ -176,10 +178,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/error_response'
 
-  /info:
+  /adc-registry/v1/info:
     get:
       description: Service information.
       operationId: get_info
+      tags:
+        - adc-registry
       responses:
         '200':
           description: Success.
@@ -194,13 +198,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/error_response'
 
-  /repositories:
+  /adc-registry/v1/repositories:
     get:
       description: >
         Returns a list of repositories and their associated Info objects
-      operationId: get_repostiroeis
+      operationId: get_repositories
       tags:
-        - repositories
+        - adc-registry
       responses:
         '200':
           description: |
@@ -221,4 +225,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error_response'
-
+  
+  /ga4gh/service-info:
+    # Links to the latest version of Global Alliance for Global Health (GA4GH) service-info - https://www.ga4gh.org/product/service-info/
+    $ref: 'https://raw.githubusercontent.com/ga4gh-discovery/ga4gh-service-info/develop/service-info.yaml#/paths/~1service-info'
