@@ -15,7 +15,7 @@ info:
     url: https://creativecommons.org/licenses/by/4.0/
 
 servers:
-  - url: https://registry.airr-community.org/airr-registry/v1
+  - url: https://adc-registry.airr-community.org/airr-registry/v1
     description: AIRR Community ADC Registry
     variables:
       basePath:
