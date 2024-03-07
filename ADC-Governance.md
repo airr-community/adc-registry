@@ -10,7 +10,8 @@ that adhere to the ADC standards. This document describes the governance for the
 The ADC Registry provides a mechanism to find and access the repositories in the ADC.
 The document provides information about the processes used to manage and approve repositories that
 are listed in the ADC Registry as well as the processes to monitor and determine reliability
-of those repositories
+of those repositories. The ADC Registry is maintained and managed by the [AIRR Community 
+Common Repository Working Group](https://www.antibodysociety.org/the-airr-community/airr-working-groups/repository/).
 
 ## Guidelines for repositories in the ADC
 
