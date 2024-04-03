@@ -30,24 +30,30 @@ components:
       properties:
         title:
           type: string
+          description: Descriptive title that describes the service.
           example: AIRR Data Commons Registry API
         version:
           type: string
+          description: Version of the service being provided.
           example: '1.0'
         description:
           type: string
+          description: More detailed description of the service being provided.
           example: Service that provides registry information for the repositories in the AIRR Data Commons
         contact: 
           type: object
           properties:
             name:
               type: string
+              description: Name of the person/organization to contact about the service.
               example: AIRR Community Common Repository Working Group
             url:
               type: string
+              description: URL to use to find out more information about the service.
               example: http://www.airr-community.org
             email:
               type: string
+              description: EMail to use to contact the maintainers of the service.
               example: common-repository@airr-community.org
         license:
           type: object
@@ -61,73 +67,96 @@ components:
     # Info object for the repository itself
     repository_info_object:
       type: object
+      required:
+        - version
       description: Provides information about the repository
       properties:
         title:
           type: string
+          description: Descriptive title for the repository.
           example: iReceptor Public Archive - Repository 1
         version:
           type: string
+          description: Software version that the repository is running.
           example: '4.0'
         description:
           type: string
+          description: More detailed description of the repository.
           example: First repository in the iReceptor Public Archive repository cluster, running v4.0 of the iReceptor Turnkey software and impleneting v1.2 of the AIRR Data Commons API.
         contact:
           type: object
+          required:
+            - email
           properties:
             name:
               type: string
+              description: Contact name for users to contact about the repository.
               example: iReceptor Support
             url:
               type: string
+              description: URL to find out more information about the repository
               example: https://github.com/sfu-ireceptor/turnkey-service-php
             email:
               type: string
+              description: Contact email for the repository
               example: support@ireceptor.org
-        data_license:
+        license:
           type: object
           properties:
             name:
               type: string
+              description: Name of the type of license for the data that is contained in this repository
               example: Creative Commons Attribution 4.0 International
             url:
               type: string
+              description: URL to find details about the license for the data in this repository.
               example: https://creativecommons.org/licenses/by/4.0/
 
-    # Info object for the ADC API the repository inplements
+    # Info object for the ADC API the repository implements
     api_info_object:
       type: object
-      description: Provides information about the API implemented by the repository
+      required:
+        - version
+      description: Provides information about the version of the ADC API implemented by the repository
       properties:
         title:
           type: string
+          description: Descriptive name for the query API that the repository implements
           example: AIRR Data Commons API
         version:
           type: string
+          description: Version of the repository query API that the repository implements
           example: '1.2.0'
         description:
           type: string
+          description: More detailed description of the API that the repository implements.
           example: Version 1.2 of the Adaptive Immune Receptor Repertoire (AIRR) Data Commons (ADC) web service application programming interface (API)
         contact:
           type: object
           properties:
             name:
               type: string
+              description: Contact name for the person/organization to contact about the API.
               example: AIRR Community
             url:
               type: string
+              description: URL to use to find out more information about the contact person/organization for the API.
               example: www.airr-community.org
             email:
               type: string
+              description: Email to use to for the contact person/organization that maintains the API.
               example: common-repository@airr-community.org
 
     # repository object
     repository_object:
       type: object
       description: Object that describes an ADC repository.
+      required:
+        - url
       properties:
         url:
           type: string
+          description: URL of the repository
           example: https://ipa1.ireceptor.org
         repository:
           $ref: '#/components/schemas/repository_info_object'
