@@ -50,7 +50,8 @@ repository.
 
 If a repository has been added to the registry but falls out of compliance with the ADC Guidelines above,
 the Common Repository Working Group will assess the non-compliance, and if deemed appropriate will contact
-the data steward for the repository. If the non-compliance can not be resolved, the repository will be
+the data steward for the repository. If the non-compliance can not be resolved (or the data steward is not
+reachable), the repository will be
 recommended for removal. A vote of the Common Repository Working Group will be held, and if the removal
 recommendation is approved the repository will be removed from the ADC Registry.
 
