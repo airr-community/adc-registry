@@ -19,7 +19,8 @@ Repositories must:
 - Implement the [AIRR Data Commons Query API](https://docs.airr-community.org/en/latest/api/adc_api_overview.html) for querying the repository
 - Be accessible from any IP number (no IP filtering other than security/DOS filtering)
 - Pass the [ADC API query test suite](https://github.com/airr-community/adc-api-tests)
-- Provide a data steward contact for the repository
+- Maintain consistency between the ADC Registry /info query for the repository and the ADC API /info query for the repository itself
+- Provide a data steward contact for the repository, including consent for the contact details of the data steward to be included in the information returned by the registry
 - Have documented contact mechanisms for contacting the data steward for the repository
 - Maintain a reasonable uptime
 - Demonstrate ongoing ADC API compliance through passing the [ADC API query test suite](https://github.com/airr-community/adc-api-tests)
@@ -28,8 +29,8 @@ Repositories must:
 
 The process for registering a repository is straightforward:
 
-- Fill out the ADC Registry submission form to describe how your repository meets the ADC guidelines
-- Send the submission form to common-repository@airr-community.org
+- Provide a brief description of how your repository meets the ADC Registry guidelines described above
+- Send the information to common-repository@airr-community.org
 - The submission will be reviewed by the Common Repository Working Group
 - Iterative feedback will be provided and issues that need to be adressed will be identified
 - Final submission will be reviewd by the Common Repository Working Group
@@ -38,7 +39,8 @@ The process for registering a repository is straightforward:
 ## Updating information about a repository in the ADC Registry
 
 To change the details for a repository in the ADC Registry, please have the registered data steward contact the
-Common Repository Working Group on common-repository@airr-community.org with the updated information.
+Common Repository Working Group on common-repository@airr-community.org with the updated information. Data stewards
+are expected to proactively contact the CRWG when changes are made to the repository.
 
 ## Removing a repository from the ADC Registry
 
